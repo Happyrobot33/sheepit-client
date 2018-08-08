@@ -29,6 +29,7 @@ import com.sun.jna.ptr.IntByReference;
 public interface OpenCLLib extends Library {
 	// status
 	public static final int CL_SUCCESS = 0;
+	public static final int CL_DEVICE_NOT_FOUND = -1;
 	
 	public static final int CL_PLATFORM_VENDOR = 0x0903;
 	

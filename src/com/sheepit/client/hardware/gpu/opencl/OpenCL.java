@@ -85,6 +85,10 @@ public class OpenCL implements GPULister {
 			IntByReference device_count = new IntByReference();
 			
 			status = lib.clGetDeviceIDs(plateforms[i], OpenCLLib.CL_DEVICE_TYPE_GPU, 0, null, device_count);
+			if (status == OpenCLLib.CL_DEVICE_NOT_FOUND) {
+				System.out.println("OpenCL::getGpus no device found on plateforms[" + i + "]");
+				continue;
+			}
 			if (status != OpenCLLib.CL_SUCCESS) {
 				System.out.println("OpenCL::getGpus failed(F) status: " + status);
 				return null;
